@@ -1,12 +1,10 @@
-function HBStat() {
+function HBStat(id) {
     this.socket = new WebSocket("ws://localhost:8085");
-    this.authorize();
+    this.authorize(id);
 };
 
-HBStat.prototype.authorize = function() {
-    var user = 'admin';
-    var password = 'admin';
-    var preparedMessage = {type:'authorize', user: user, password: password};
+HBStat.prototype.authorize = function(id) {
+    var preparedMessage = {type:'authorize', id: id };
     this._send(JSON.stringify(preparedMessage));
 };
 

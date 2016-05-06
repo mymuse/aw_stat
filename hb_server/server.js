@@ -42,20 +42,8 @@ webSocketServer.on('connection', function(ws) {
 
 });
 
-function checkUser (user, password, callback) {
-	existUser(user, function (exist) {
-		if (exist) {
-            callback (user === "admin" && password === "admin");
-		} else {
-			callback (false);
-		}
-	});
-}
-
-function existUser (user, callback) {
-	if(user === "admin"){
-        callback(true);
-    }
+function checkUser (id, callback) {
+    callback (id === "123");
 }
    
        
