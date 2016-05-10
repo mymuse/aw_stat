@@ -1,5 +1,5 @@
 function TestApp() {
-  this.hbStat = new HBStat();  
+  this.hbStat = new HBStat('123');  
   this.init();
 };
 

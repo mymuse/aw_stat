@@ -16,8 +16,8 @@ webSocketServer.on('connection', function(ws) {
   ws.on('message', function(message) {
     var event = JSON.parse(message);
     if (event.type === 'authorize') {
-        console.log('authorize: ' + event.user + '  ' + event.password);
-        checkUser(event.user, event.password, function (success) {
+        console.log('authorize: ' + event.id);
+        checkId(event.id, function (success) {
             isRegistered = success;
             var returning = {type:'authorize', success: success};
             ws.send (JSON.stringify(returning));
@@ -42,7 +42,7 @@ webSocketServer.on('connection', function(ws) {
 
 });
 
-function checkUser (id, callback) {
+function checkId (id, callback) {
     callback (id === "123");
 }
    
