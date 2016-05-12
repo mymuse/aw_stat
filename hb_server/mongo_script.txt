@@ -1,0 +1,4 @@
+use hb_stat
+db.createCollection("hbstat")
+db.hbstat.insert({id:'123', password:'admin', events:[{eventId:'1', message:'test_event'}]})
+db.hbstat.update({id:'123', password:'admin'}, {$push:{events:{eventId:'2', message:'test_event_2'}}})
