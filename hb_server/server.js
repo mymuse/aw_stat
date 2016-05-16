@@ -51,12 +51,12 @@ webSocketServer.on('connection', function(ws) {
 
 function checkId(id, callback) {
     hbstatBD.find({id: id}).toArray(function (error, list) {
-        console.log(list);
 		callback (list.length !== 0);
 	});
 }
 
 function pushEvent (id, eventId, message, callback) {
+    console.log('push event: ' + message);
     hbstatBD.update({id:id}, {$push:{events:{eventId: eventId, message: message}}});
 }
        
