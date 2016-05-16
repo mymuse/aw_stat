@@ -1,20 +1,44 @@
-$(window).load(function(){
-    function TestApp() {
-      this.hbStat = new HBStat('123');  
-      this.init();
-    };
+// create the module and name it scotchApp
+var scotchApp = angular.module('scotchApp', ['ngRoute']);
+window.hbStat = new HBStat('123');
 
-    TestApp.prototype.init = function() {
-        this.form = $.find('.test-form');
-        this.submitFunc = this.submit.bind(this);
-        $(this.form).on('submit',this.submitFunc);
-    };
+// configure our routes
+scotchApp.config(function($routeProvider) {
+    $routeProvider
 
-    TestApp.prototype.submit = function(e) {
-        e.preventDefault();
-        var outgoingMessage = this.form[0].message.value;
-        this.hbStat.send(outgoingMessage);
-    };
+        // route for the home page
+        .when('/', {
+            templateUrl : 'pages/home.html',
+            controller  : 'mainController'
+        })
 
-    new TestApp();
+        // route for the about page
+        .when('/about', {
+            templateUrl : 'pages/about.html',
+            controller  : 'aboutController'
+        })
+
+        // route for the contact page
+        .when('/contact', {
+            templateUrl : 'pages/contact.html',
+            controller  : 'contactController'
+        });
+});
+
+// create the controller and inject Angular's $scope
+scotchApp.controller('mainController', function($scope) {
+    // create a message to display in our view
+    $scope.message = 'Everyone come and see how good I look!';
+    $scope.sendForm = function(){
+        var outgoingMessage = $scope.text;
+        window.hbStat.send(outgoingMessage);
+    }
+});
+
+scotchApp.controller('aboutController', function($scope) {
+    $scope.message = 'Look! I am an about page.';
+});
+
+scotchApp.controller('contactController', function($scope) {
+    $scope.message = 'Contact us! JK. This is just a demo.';
 });

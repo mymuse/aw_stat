@@ -3,8 +3,8 @@
 	
 	<p>{{ message }}</p>
     
-    <form class='test-form' method='post'>
-      <input type="text" name="message">
+    <form class='test-form' ng-submit='sendForm()' method='post'>
+      <input type="text" name="text" ng-model="text">
       <input type="submit" value="Send">
     </form>
 </div>
