@@ -1,16 +1,28 @@
-<div class="jumbotron container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-             </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+<div class="jumbotron  container">
+    <form class="form-horizontal" name="loginForm" method="POST" ng-submit="submit()">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Login</legend>
+            </div>
+            <div class="control-group">
+                <!-- E-mail --> <label class="control-label" for="email">E-mail</label> 
+                <div class="controls">
+                    <input type="email" name="email" placeholder="Your email" ng-model="user.email" required> 
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Password--> <label class="control-label" for="password">Password</label> 
+                <div class="controls">
+                    <input type="password" name="password" placeholder="Your password" ng-model="user.password" required> 
+                </div>
+            </div>
+            <div class="control-group">
+                <!-- Button --> 
+                <div class="controls"> 
+                    <button class="btn btn-success btn-lg">Login</button> 
+                </div>
+            </div>
+        </fieldset>
     </form>
-    <a href="#registration"><button class="btn btn-lg btn-success btn-block">Registration</button></a>
+    <button class="btn btn-info btn-lg registration" ng-click="go('/registration')">Registration</button>
 </div>
