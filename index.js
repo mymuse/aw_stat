@@ -1,6 +1,13 @@
 var hbStatApp = angular.module('hbStatApp', ['ngRoute']);
 hbStatApp.constant('hbStat', new HBStat('123'));
 
+hbStatApp.run(function($rootScope,$location) {
+        $rootScope.go = function ( path ) {
+            $location.path( path );
+        };
+});
+
+
 hbStatApp.config(function($routeProvider) {
     $routeProvider
         .when('/', {

@@ -1,3 +1,4 @@
-hbStatApp.controller('aboutController', function($scope) {
-    $scope.message = 'Look! I am an about page.';
+hbStatApp.controller('aboutController', function($scope, $location) {
+    $scope.accountPageURL = window.location.origin + "/index.html#/account";
+    
 });

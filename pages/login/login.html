@@ -1,28 +1,38 @@
-<div class="jumbotron  container">
-    <form class="form-horizontal" name="loginForm" method="POST" ng-submit="submit()">
-        <fieldset>
-            <div id="legend">
-                <legend class="">Login</legend>
+<div class="login container">
+     <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" name="loginForm" method="POST" ng-submit="submit()">
+                    <fieldset>
+                        <legend class="text-center header">Login or Register</legend>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o fa-3x"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control" ng-model="user.email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-key fa-3x"></i></span>
+                            <div class="col-md-8">
+                                <input id="password" name="password" type="password" placeholder="Password" class="form-control" ng-model="user.password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="button " class="btn btn-info btn-lg registration" ng-click="go('/registration')">Registration</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
-            <div class="control-group">
-                <!-- E-mail --> <label class="control-label" for="email">E-mail</label> 
-                <div class="controls">
-                    <input type="email" name="email" placeholder="Your email" ng-model="user.email" required> 
-                </div>
-            </div>
-            <div class="control-group">
-                <!-- Password--> <label class="control-label" for="password">Password</label> 
-                <div class="controls">
-                    <input type="password" name="password" placeholder="Your password" ng-model="user.password" required> 
-                </div>
-            </div>
-            <div class="control-group">
-                <!-- Button --> 
-                <div class="controls"> 
-                    <button class="btn btn-success btn-lg">Login</button> 
-                </div>
-            </div>
-        </fieldset>
-    </form>
-    <button class="btn btn-info btn-lg registration" ng-click="go('/registration')">Registration</button>
+         </div>
+    </div>
 </div>
